@@ -1,0 +1,18 @@
+TODO - Última atualização 03/05/2013
+
+- Abrir diálogo para salvar representação ao apertar Ctrl+S
+- Interface REST
+- Quando edita a conexão e seleciona ela de novo não funciona
+- Implementar outras formas além de elipse para representação dos nós
+- implementar peso nas arestas? grossura...
+- implementar informações adicionais nas arestas?
+- corrigir bugs de interface
+
+
+
+DONE!!!!!!!!!!!!
+- Botão sair da MainWindow
+- Janela para configurar dispositivo de exibição (dar nome e resolução e definir como ativo)
+- Ignorar colunas nulas
+- Mostrar apenas parcial dos dados na tabela para não ficar muito pesado
+- Retirar algoritmo de Gilbert e Auber, muito lento para grande quantidade de linhas selecionadas

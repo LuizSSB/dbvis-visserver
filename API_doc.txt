@@ -1,0 +1,76 @@
+API DBVis para dispositivos externos
+http://localhost:8081/
+
+***CONEXÃO***
+
+devices/
+	POST (String $deviceName, String $password): conecta o dispositivo na visualização. Retorna: String $token.
+devices/?deviceName=$deviceName&token=$token
+	DELETE: desconecta o dispositivo da visualização.
+	PUT (int $left, int $top, int $right, int $bottom): atualiza o apontamento do dispositivo na visualização.
+
+***IMAGENS***
+
+images/?deviceName=$deviceName&token=$token
+	GET: Lista as imagens disponíveis no momento.
+
+images/{id}/download?deviceName=$deviceName&token=$token
+	GET: Faz o download da imagem {id}.
+
+
+***METADADOS***
+metadata?deviceName=$deviceName&token=$token
+        GET: Retorna os metadados do conjunto de dados selecionado
+
+
+***NÓS***
+
+nodes/area?deviceName=$deviceName&token=$token&x=$x&y=$y&width=$width&height=$height
+	GET: retorna os nós na área .
+nodes/point?deviceName=$deviceName&token=$token&x=$x&y=$y
+	GET: retorna o nó em {x},{y}. 
+nodes/{nodeId}?deviceName=$deviceName&token=$token
+	GET: Recupera a informação do nó {nodeId}.
+
+
+***SELEÇÃO***
+
+selections/point?deviceName=$deviceName&token=$token
+	POST (int $x, int $y): Seleciona o nó no ponto $x, $y.
+
+selections/area?deviceName=$deviceName&token=$token
+	POST (int $top, int $left, int $bottom, int $right): Seleciona os nós na área $top, $left, $bottom, $right.
+
+selections/node?deviceName=$deviceName&token=$token
+	POST (int $nodeId): Seleciona o nó $nodeId.
+
+selections/?deviceName=$deviceName&token=$token
+	GET: Retorna todos os nós selecionados.	
+	DELETE: Retira todas as seleções.
+
+
+***CONTEÚDOS DE USUÁRIOS***
+
+userContents/texts?deviceName=$deviceName&token=$token
+        POST (int $x, int $y, $text): Adiciona um texto
+
+userContents/texts/$id?deviceName=$deviceName&token=$token
+        DELETE: Apaga um texto
+
+userContents/texts?timestamp=$timestamp&deviceName=$deviceName&token=$token
+        GET: Baixa todos os textos adicionados pelos usuários que foram atualizados após o timestamp
+
+userContents/charts
+        POST ($text, $file, $nodesInfo, $axisX, $axisY, $axisZ, $type, $deviceName, $token): Adiciona um gráfico
+
+userContents/charts/$id?deviceName=$deviceName&token=$token
+        DELETE: Apaga um gráfico
+
+userContents/charts?timestamp=$timestamp&deviceName=$deviceName&token=$token
+        GET: Baixa todos os gráficos adicionados pelos usuários que foram atualizados após o timestamp
+
+userContents/charts/$id,$owner/download?deviceName=$deviceName&token=$token
+        GET: Baixa a imagem de preview do gráfico
+
+userContents/timestamp?deviceName=$deviceName&token=$token
+	GET: Retorna o timestamp do servidor

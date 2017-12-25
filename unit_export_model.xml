@@ -1,0 +1,32 @@
+<graph>
+  <nodes>
+    <node>
+      <id>academico.aluno</id>
+      <label>academico.aluno</label>
+      <x>10.0</x>
+      <y>15.0</y>
+      <size>8.5</size>
+      <color>100,200,0</color><!-- r,g,b --> 
+      <properties>
+        <property name="size" type="java.lang.Double">10.2</property>
+	<property> ... </property>
+        ...
+      </properties>
+    </node>			
+    <node> 
+    ...
+    </node>
+  </nodes>
+  <edges>
+    <edge>
+      <source>academico.aluno</source>
+      <target>academico.falta</source>
+      <directed>true</directed>
+    </edge>
+    <edge>
+    ...
+    </edge>
+  </edges>
+</graph>    
+
+
